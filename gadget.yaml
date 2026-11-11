@@ -1,8 +1,8 @@
-name: "@GADGET_NAME@"
+name: "gadget-top-syscall"
 description: Periodically report chdir syscall counts by process
-homepageURL: https://github.com/@REPOSITORY@
-documentationURL: https://github.com/@REPOSITORY@#readme
-sourceURL: https://github.com/@REPOSITORY@
+homepageURL: https://github.com/yamlinson/gadget-top-syscall
+documentationURL: https://github.com/yamlinson/gadget-top-syscall#readme
+sourceURL: https://github.com/yamlinson/gadget-top-syscall
 datasources:
   calls:
     fields:
