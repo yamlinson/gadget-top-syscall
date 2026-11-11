@@ -1,6 +1,6 @@
 # gadget-top-syscall
 
-Report `chdir` syscall counts per process with an Inspektor Gadget **map
+Report all syscall counts per process with an Inspektor Gadget **map
 iterator**. The kernel aggregates attempts in a hash map instead of sending an
 event for every syscall.
 

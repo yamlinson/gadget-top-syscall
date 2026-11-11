@@ -1,5 +1,5 @@
 name: "gadget-top-syscall"
-description: Periodically report chdir syscall counts by process
+description: Periodically report syscall counts by process
 homepageURL: https://github.com/yamlinson/gadget-top-syscall
 documentationURL: https://github.com/yamlinson/gadget-top-syscall#readme
 sourceURL: https://github.com/yamlinson/gadget-top-syscall
@@ -11,6 +11,6 @@ datasources:
           columns.hidden: "true"
       calls:
         annotations:
-          description: Chdir attempts in this fetch interval
+          description: Syscall attempts in this fetch interval
           columns.width: "12"
           columns.alignment: right
