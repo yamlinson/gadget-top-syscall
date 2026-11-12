@@ -62,10 +62,10 @@ int gadget_count_syscall(struct trace_event_raw_sys_enter *ctx)
 	if (gadget_should_discard_data_current())
 		return 0;
 
-    struct gadget_key key = {};
-    __builtin_memset(&key, 0, sizeof(key));
-    key.process_id = bpf_get_current_pid_tgid() >> 32;
-    key.syscall_raw = ctx->id;
+	struct gadget_key key = {};
+	__builtin_memset(&key, 0, sizeof(key));
+	key.process_id = bpf_get_current_pid_tgid() >> 32;
+	key.syscall_raw = ctx->id;
 	struct gadget_value *value = bpf_map_lookup_elem(&gadget_counts, &key);
 	if (value) {
 		/* Multiple CPUs can update this process; plain ++ loses
@@ -78,7 +78,7 @@ int gadget_count_syscall(struct trace_event_raw_sys_enter *ctx)
 	/* Reuse IG's process fields so standard container/pod enrichment works.
 	 */
 	gadget_process_populate(&initial.proc);
-    initial.proc.tid = 0;
+	initial.proc.tid = 0;
 	initial.calls = 1;
 	long err = bpf_map_update_elem(&gadget_counts, &key, &initial,
 				       BPF_NOEXIST);
@@ -98,7 +98,8 @@ int gadget_count_syscall(struct trace_event_raw_sys_enter *ctx)
 	}
 	/* Keep failures visible (including a full map); inspect --trace-pipe.
 	 */
-    bpf_printk("gadget: top_syscall count dropped, map update error %ld", err);
+	bpf_printk("gadget: top_syscall count dropped, map update error %ld",
+		   err);
 	return 0;
 }
 
